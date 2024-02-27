@@ -1,7 +1,7 @@
 "use client";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
-const logger = require('heroku-logger')
+import logger from 'heroku-logger';
 
 export default function Home() {
   const [clicks, setClicks] = useState<number>(0);
@@ -28,11 +28,9 @@ export default function Home() {
   useEffect(() => {
     if(clicks > 0) {
       if(isPrime(clicks)) {
-        logger.console.error();
-        (`The prime ${clicks} has been clicked!`)
+        logger.error(`The prime ${clicks} has been clicked!`)
       } else {
-        logger.console.log();
-        (`Clicked the number: ${clicks}!`)
+        logger.info(`Clicked the number: ${clicks}!`)
       }
     }
   }, [clicks])
