@@ -10,16 +10,11 @@ export default function Home() {
   if (num <= 1) {
     return false;
   }
-
-  // Check for special case (2)
   if (num === 2) {
     return true;
   }
-
-  // Optimization: Only check divisibility up to the square root of the number
+  
   const limit = Math.sqrt(num);
-
-  // Iterate through potential divisors (both even and odd)
   for (let i = 2; i <= limit; i++) {
     if (num % i === 0) {
       return false;
